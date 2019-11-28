@@ -341,11 +341,11 @@
     }
     
     NSArray *cells = nil;
-    if (self.zf_scrollDirection == ZFPlayerScrollDirectionUp) {
+//    if (self.zf_scrollDirection == ZFPlayerScrollDirectionUp) {
         cells = visiableCells;
-    } else {
-        cells = [visiableCells reverseObjectEnumerator].allObjects;
-    }
+//    } else {
+//        cells = [visiableCells reverseObjectEnumerator].allObjects;
+//    }
     
     /// Mid line.
     CGFloat scrollViewMidY = CGRectGetHeight(self.frame)/2;
@@ -379,6 +379,8 @@
             if (!finalIndexPath || centerSpacing < finalSpace) {
                 finalIndexPath = indexPath;
                 finalSpace = centerSpacing;
+                *stop = YES;
+                return;
             }
         }
     }];
